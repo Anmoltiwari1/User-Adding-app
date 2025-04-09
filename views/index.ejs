@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Manager</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+>
+<body>
+  <h1>User Adding App</h1>
+  <form action="/add-user" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="file" name="image" />
+    <button type="submit">Add User</button>
+  </form>
+
+  <h2>All Users</h2>
+  <ul>
+    <% users.forEach(user => { %>
+      <li>
+        <strong><%= user.name %></strong> - <%= user.email %><br/>
+        <% if (user.image) { %>
+          <img src="/uploads/<%= user.image %>" alt="User Image" width="100"/>
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
